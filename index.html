@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Task Manager</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f4f7;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #ccc;
+        }
+
+        input {
+            padding: 12px;
+            width: 65%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .add {
+            background: #222;
+            color: white;
+        }
+
+        li {
+            list-style: none;
+            background: #f1f1f1;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        li button {
+            float: right;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>📚 Student Task Manager</h1>
+
+    <p>Manage your daily college tasks</p>
+
+    <input id="taskInput" placeholder="Enter a task...">
+
+    <button class="add" onclick="addTask()">Add</button>
+
+    <h3>My Tasks</h3>
+
+    <ul id="taskList"></ul>
+
+</div>
+
+<script>
+
+function addTask() {
+
+    let input = document.getElementById("taskInput");
+    let task = input.value;
+
+    if (task == "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    let li = document.createElement("li");
+
+    li.innerHTML = task +
+        ' <button onclick="this.parentElement.remove()">❌</button>';
+
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
+}
+
+</script>
+
+</body>
+</html>
